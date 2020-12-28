@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//API入力サンプル
+Route::get('/ping',function(){
+    return response()->json(['message'=>'ping'],200);
+});
+
+//APIのサンプルを入力します。必要になる情報を入力します。
+Route::get('/sample',function(){
+    return response()->json(['message'=>'sample'],200);
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
