@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//registerのURLからAPIを取得します。
+Route::post('/register', 'Auth\RegisterController@register')->name('register');
+
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');    //追加
+
+Route::get('/user', function(){
+    return Auth::user();
+});

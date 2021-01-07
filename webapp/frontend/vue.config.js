@@ -1,10 +1,16 @@
 module.exports = {
-    devServer: {
-      port: 9001
-    },
-    outputDir: '../public',
-    assetsDir: 'assets',
-    indexPath: process.env.NODE_ENV === 'production'
-      ? '../resources/views/index.blade.php'
-      : 'index.html'
-  }
+  "devServer": {
+    "port": 9001,
+     proxy: {
+        '/api': {
+            target: 'http://127.0.0.1:8000'
+        }
+  },
+},
+  "outputDir": "../public",
+  "assetsDir": "assets",
+  "indexPath": "index.html",
+  "transpileDependencies": [
+    "vuetify"
+  ]
+}
